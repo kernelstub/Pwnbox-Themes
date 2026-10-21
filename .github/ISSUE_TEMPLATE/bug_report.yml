@@ -1,0 +1,60 @@
+name: Theme bug
+description: A theme installs but looks wrong, or the installer fails
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening an issue, check
+        [docs/reference/troubleshooting.md](https://github.com/kernelstub/Pwnbox-Themes/blob/main/docs/reference/troubleshooting.md).
+  - type: input
+    id: theme
+    attributes:
+      label: Theme
+      description: Folder name or link to the theme in this repository.
+      placeholder: e.g. midnight
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did you expect, and what happened instead?
+      placeholder: Describe the problem as precisely as you can.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps that trigger the problem.
+      placeholder: |
+        1. Run ./scripts/install-theme.sh ...
+        2. Select ...
+        3. See ...
+    validations:
+      required: true
+  - type: input
+    id: pwnbox-commit
+    attributes:
+      label: Pwnbox commit
+      description: Output of `git -C ~/pwnbox rev-parse --short HEAD`.
+      placeholder: e.g. d337968
+  - type: textarea
+    id: validator
+    attributes:
+      label: Validator output
+      description: Output of `python3 scripts/validate-theme.py --theme themes/<name> --strict`.
+      render: text
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Screenshots, app names, GPU, NixOS version, anything else useful.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched the existing issues first
+        - label: This is about a theme in this repository, not a Pwnbox bug

@@ -1,0 +1,26 @@
+name: Theme request
+description: Suggest a palette, a port or a wallpaper style
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Idea
+      description: What theme or palette would you like to see?
+      placeholder: Name, mood, links to the palette or wallpaper.
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: |
+        Palette source and licence, wallpaper source, whether you can build it
+        yourself, or whether you are asking someone else to.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched the existing themes and issues first
+        - label: The palette or wallpaper can be redistributed

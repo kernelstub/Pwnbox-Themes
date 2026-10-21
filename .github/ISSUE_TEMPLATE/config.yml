@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Theme documentation
+    url: https://github.com/kernelstub/Pwnbox-Themes/blob/main/docs/README.md
+    about: Install, create, validate and submit themes.
+  - name: Pwnbox issues
+    url: https://github.com/kernelstub/Pwnbox/issues
+    about: Bugs in Pwnbox itself, not in a community theme.
+  - name: Security report
+    url: https://github.com/kernelstub/Pwnbox-Themes/security/advisories/new
+    about: Report an unsafe theme or a script vulnerability privately.

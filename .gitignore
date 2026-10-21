@@ -1,0 +1,18 @@
+# macOS and Windows metadata
+.DS_Store
+Thumbs.db
+
+# Editor and shell leftovers
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+
+# Local previews and scratch files
+/tmp/
+*.log
