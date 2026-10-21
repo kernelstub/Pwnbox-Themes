@@ -1,8 +1,9 @@
 <h1 align="center">PWNBOX THEMES</h1>
 
 <p align="center">
-  <img src="assets/banner.svg" alt="Pwnbox Themes" width="960">
+  <img width="1500" height="500" alt="banner-pwnbox" src="https://github.com/user-attachments/assets/0dcaa5a3-8ec2-4c9b-bac2-422a65f4ed9d" />
 </p>
+
 
 <p align="center">
   Community theme packages for <a href="https://github.com/kernelstub/Pwnbox">Pwnbox</a>:
