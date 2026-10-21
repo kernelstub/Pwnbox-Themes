@@ -108,8 +108,9 @@ done
 case "$width" in
 '' | *[!0-9]*) die "width must be a number: $width" ;;
 esac
-[ "$width" -ge 640 ] && [ "$width" -le 3840 ] ||
+if [ "$width" -lt 640 ] || [ "$width" -gt 3840 ]; then
     die 'width must be between 640 and 3840'
+fi
 height=$((width * 9 / 16))
 
 if [ -d "$theme_arg" ]; then
