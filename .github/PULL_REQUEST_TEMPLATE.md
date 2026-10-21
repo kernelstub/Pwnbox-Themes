@@ -19,7 +19,7 @@ Fill this in for a new theme; skip it for docs or tooling changes.
 - [ ] `themes/<name>/README.md` credits the author, palette and wallpaper
       licence
 - [ ] A gallery row was added to the root `README.md`
-- [ ] The theme was installed and tested in Pwnbox
+- [ ] The theme was copied into Pwnbox and tested
 - [ ] `python3 scripts/validate-theme.py --strict` passes
 - [ ] Only this theme (and its gallery row) changed in this PR
 
@@ -27,9 +27,6 @@ Fill this in for a new theme; skip it for docs or tooling changes.
 
 - [ ] `python3 scripts/validate-theme.py --strict` passes if theme files
       changed
-- [ ] `bash -n scripts/install-theme.sh scripts/render-preview.sh` passes if a
-      script changed
-- [ ] `shellcheck scripts/install-theme.sh scripts/render-preview.sh` passes
 - [ ] Docs updated where behaviour changed
 - [ ] No emojis in code, docs or the commit message
 

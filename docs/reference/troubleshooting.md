@@ -75,8 +75,8 @@ the wallpaper pointed to by `wallpaper =`.
 - If `wallpaper` is missing or points to a file that does not exist, Pwnbox
   falls back to the first image it finds. `preview.png` sorts before
   `wallpaper.png` and can win that fallback.
-- The installer copies only `theme.conf` and the named wallpaper, so a manual
-  copy of the whole folder is the usual way to hit this.
+- A copied folder can contain `preview.png` too. Keep `wallpaper =` explicit
+  so Pwnbox never has to fall back to the first image.
 
 ## The wallpaper is not applied
 
@@ -172,18 +172,6 @@ invisible or harsh. Before submitting:
 If an app is genuinely broken by a light palette, that is useful feedback for
 Pwnbox; open an issue there with a screenshot.
 
-## The installer cannot find my Pwnbox checkout
-
-Pass it explicitly:
-
-```bash
-./scripts/install-theme.sh midnight --flake /path/to/Pwnbox
-```
-
-Auto-detection checks `$PWNBOX_DIR`, the current directory, `~/pwnbox` and
-`~/Pwnbox`. The directory must contain `flake.nix` and
-`dotfiles/themes/`.
-
 ## `git add` refuses the theme
 
 The path may be ignored by the Pwnbox checkout's `.gitignore`:
@@ -195,13 +183,17 @@ git check-ignore -v dotfiles/themes/<name>/theme.conf
 
 Remove the matching ignore rule, or add an exception, then stage again.
 
-## The installer says the theme already exists
+## A folder with the same name already exists
 
-Another folder with the same name is already installed. If you are updating
-the same theme:
+If you are updating the same theme, replace the installed folder:
 
 ```bash
-./scripts/install-theme.sh <name> --force
+rm -rf ~/pwnbox/dotfiles/themes/<name>
+cp -r themes/<name> ~/pwnbox/dotfiles/themes/
+
+cd ~/pwnbox
+git add -A dotfiles/themes/<name>
+upd
 ```
 
 If it is a different theme with a colliding folder name, rename one of them.

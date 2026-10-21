@@ -1,8 +1,8 @@
 # Security policy
 
 This repository distributes theme data for Pwnbox: `theme.conf` files,
-wallpapers and preview images. It does not ship executables or install
-scripts that run at login.
+wallpapers and preview images. It does not ship installers or hooks that run
+at login; the only tooling is the package validator.
 
 ## Supported versions
 
@@ -14,13 +14,11 @@ formal releases.
 - A theme package that can execute code, escape its folder, write outside the
   theme directory or otherwise affect the host beyond changing colours and a
   wallpaper.
-- A `wallpaper` path that traverses directories, points outside the package,
-  or uses an absolute path to make the installer copy an unintended file.
+- A `wallpaper` path that traverses directories or points outside the package.
 - A package containing scripts, binaries, symlinks or executable files,
   especially when hidden among images.
-- A vulnerability in `scripts/install-theme.sh`, `scripts/validate-theme.py`
-  or `scripts/render-preview.sh` (for example shell injection through a theme
-  name or palette value).
+- A vulnerability in `scripts/validate-theme.py` (for example path handling
+  that lets a crafted theme read or write outside its package).
 - CI or repository automation that can be tricked by a contributed file.
 - Stolen or mislicensed artwork, or previews containing private data. These
   are handled as community/licensing issues rather than software
@@ -47,8 +45,8 @@ Use GitHub's private reporting:
 1. Go to **Security -> Report a vulnerability** in this repository.
 2. Describe the affected file, the impact, and a minimal reproducer if you
    have one.
-3. State whether the issue affects the installer, the validator, CI, or only
-   a specific theme package.
+3. State whether the issue affects the validator, CI, or a specific theme
+   package.
 
 You can also email [kern@skuntir.com](mailto:kern@skuntir.com) with the
 subject `pwnbox themes security`. PGP is not required.

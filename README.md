@@ -18,7 +18,7 @@
 - [Install a theme](#install-a-theme)
 - [Create a theme](#create-a-theme)
 - [Theme format](#theme-format)
-- [Validate, preview, submit](#validate-preview-submit)
+- [Validate and submit](#validate-and-submit)
 - [Documentation](#documentation)
 - [Community](#community)
 - [Author](#author)
@@ -28,49 +28,51 @@
 
 ## Themes
 
+No community themes have been merged yet. The `themes/_template/` package is
+the starting point; see [Create a theme](docs/usage/create.md).
+
 Pwnbox already ships its own themes (`Pwnbox`, `Monochrome`, `Amoled`,
 `Beach`, `Catppuccin`, `Compose`, `Gruvbox`, `Nord`). This repository is for
 community additions.
 
 The format is the same as Pwnbox's `dotfiles/themes/` packages and is tested
-against the current `main` branch. Every theme is a self-contained folder
-under `themes/`:
+against the current `main` branch. Every contributed theme is a self-contained
+folder under `themes/` and gets a row in this gallery:
 
 | Preview | Theme | Install |
 | --- | --- | --- |
-| <a href="themes/midnight"><img src="themes/midnight/preview.png" width="360" alt="Midnight preview"></a> | **Midnight**<br>Deep navy with cyan and magenta accents.<br><sub>by [@kernelstub](https://github.com/kernelstub)</sub> | `./scripts/install-theme.sh midnight` |
-| <a href="themes/ember"><img src="themes/ember/preview.png" width="360" alt="Ember preview"></a> | **Ember**<br>Warm charcoal with ember orange and amber accents.<br><sub>by [@kernelstub](https://github.com/kernelstub)</sub> | `./scripts/install-theme.sh ember` |
 | <a href="docs/usage/create.md">+ Add your theme</a> | **Your theme here**<br>Build it, validate it, open a PR.<br><sub>see [docs/usage/create.md](docs/usage/create.md)</sub> | — |
 
-Previews are generated palette cards. A real screenshot of your Pwnbox
-desktop is also welcome as `preview.png`.
+Previews can be palette cards or real screenshots of your Pwnbox desktop,
+saved as `preview.png`.
 
 ---
 
 ## Install a theme
 
-Requirements: a working Pwnbox checkout (the directory with `flake.nix`) and
-a user that can rebuild the system.
+The repository currently ships only the template, so there is nothing to
+install until a community theme is merged. Once one is available, copy its
+folder into your Pwnbox dotfiles.
 
 ```bash
 git clone https://github.com/kernelstub/Pwnbox-Themes.git
 cd Pwnbox-Themes
 
-# install and activate (the script finds ~/pwnbox automatically)
-./scripts/install-theme.sh midnight
+# aurora is an example theme name; replace it with the theme you want
+cp -r themes/aurora ~/pwnbox/dotfiles/themes/
 
-# or point it at your checkout explicitly
-./scripts/install-theme.sh midnight --flake ~/src/Pwnbox
+cd ~/pwnbox
+git add dotfiles/themes/aurora
+upd
 ```
 
-The installer validates the theme, copies only `theme.conf` and the wallpaper
-into `dotfiles/themes/<name>`, stages them with `git add`, and runs
-`./scripts/install.sh switch`.
+Pwnbox only needs `theme.conf` and the wallpaper named in it. Copying the
+whole folder is fine; `preview.png` and `README.md` are harmless extras.
 
 Then select it:
 
 ```text
-ALT + S -> THEME -> Custom -> Midnight
+ALT + S -> THEME -> Custom -> Aurora
 ```
 
 Or from a terminal:
@@ -79,15 +81,7 @@ Or from a terminal:
 pwnbox-theme custom
 ```
 
-Useful commands:
-
-```bash
-./scripts/install-theme.sh --list   # list the themes in this repository
-./scripts/install-theme.sh midnight --no-rebuild
-./scripts/install-theme.sh midnight --force   # update an installed theme
-```
-
-Manual install, updating and uninstalling are covered in
+Manual installation, updating and uninstalling are covered in
 [docs/setup/install.md](docs/setup/install.md).
 
 > Themes are part of the Pwnbox flake. The flake only sees files tracked by
@@ -111,12 +105,16 @@ $EDITOR themes/aurora/theme.conf
 # add a 16:9 wallpaper (PNG or JPEG is safest)
 cp ~/Pictures/aurora.png themes/aurora/wallpaper.png
 
-# build a preview card (or drop in a real screenshot)
-./scripts/render-preview.sh aurora
+# add a 16:9 screenshot as themes/aurora/preview.png
 
-# check it, then install it into your Pwnbox checkout
+# check it
 python3 scripts/validate-theme.py --theme themes/aurora --strict
-./scripts/install-theme.sh aurora --flake ~/pwnbox
+
+# copy it into your Pwnbox checkout and rebuild
+cp -r themes/aurora ~/pwnbox/dotfiles/themes/
+cd ~/pwnbox
+git add dotfiles/themes/aurora
+upd
 ```
 
 What a theme should look like:
@@ -144,7 +142,7 @@ exact file rules are in [docs/reference/theme-format.md](docs/reference/theme-fo
 ## Theme format
 
 ```text
-themes/midnight/
+themes/aurora/
 ├── theme.conf      # required: palette (INI-style key = value)
 ├── wallpaper.png   # required: the theme wallpaper
 ├── preview.png     # required for this repository: gallery image
@@ -157,26 +155,26 @@ A complete `theme.conf`:
 name = Aurora
 wallpaper = wallpaper.png
 
-background = #0b1020
-foreground = #d7e0ff
+background = #101014
+foreground = #e6e6e6
 cursor = #7de2ff
 
-color0 = #0b1020
-color1 = #ff6b81
-color2 = #5ee6a8
-color3 = #ffd166
-color4 = #6ea8ff
-color5 = #c792ea
-color6 = #4dd6e8
-color7 = #c6d0e8
-color8 = #3b4468
-color9 = #ff8fa0
-color10 = #7cf0bc
-color11 = #ffe08a
-color12 = #8fbcff
-color13 = #d8aef5
-color14 = #74e4f2
-color15 = #f2f6ff
+color0 = #101014
+color1 = #ff7a90
+color2 = #8fe3a8
+color3 = #f3d489
+color4 = #7fb3ff
+color5 = #d0a8f5
+color6 = #7fe0e6
+color7 = #c9d3e0
+color8 = #5f6b7a
+color9 = #ff9eae
+color10 = #a8edbd
+color11 = #f7e0a8
+color12 = #a3c8ff
+color13 = #e0c2fb
+color14 = #9cebf0
+color15 = #f5f8ff
 ```
 
 | Key | Required | Meaning |
@@ -195,7 +193,7 @@ ANSI colour roles, fallback behaviour and validation rules.
 
 ---
 
-## Validate, preview, submit
+## Validate and submit
 
 ```bash
 # validate every theme in the repository
@@ -206,12 +204,6 @@ python3 scripts/validate-theme.py --strict
 
 # validate one theme
 python3 scripts/validate-theme.py --theme themes/aurora --strict
-
-# regenerate a preview card
-./scripts/render-preview.sh aurora
-
-# list installable themes
-./scripts/install-theme.sh --list
 ```
 
 To submit a theme:
@@ -232,7 +224,7 @@ Review criteria, licensing and the full submission flow are in
 
 | Document | What it covers |
 | --- | --- |
-| [Install](docs/setup/install.md) | Installer options, manual install, update, uninstall |
+| [Install](docs/setup/install.md) | Manual copy, update, uninstall |
 | [Create a theme](docs/usage/create.md) | Palette design, wallpaper, preview, testing, checklist |
 | [Theme format](docs/reference/theme-format.md) | Exact `theme.conf` grammar, ANSI roles, file rules |
 | [Troubleshooting](docs/reference/troubleshooting.md) | Theme does not appear, wrong colours, stale previews |

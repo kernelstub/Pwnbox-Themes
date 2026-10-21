@@ -29,7 +29,7 @@ git checkout -b theme/aurora
 cp -r themes/_template themes/aurora
 $EDITOR themes/aurora/theme.conf
 cp /path/to/wallpaper.png themes/aurora/wallpaper.png
-./scripts/render-preview.sh aurora
+# add a 16:9 screenshot as themes/aurora/preview.png
 ```
 
 Add `themes/aurora/README.md`:
@@ -51,7 +51,7 @@ the author and link to the source.
 Add a row to the `Themes` table in the root `README.md`:
 
 ```markdown
-| <a href="themes/aurora"><img src="themes/aurora/preview.png" width="360" alt="Aurora preview"></a> | **Aurora**<br>One-line description.<br><sub>by [@your-handle](https://github.com/your-handle)</sub> | `./scripts/install-theme.sh aurora` |
+| <a href="themes/aurora"><img src="themes/aurora/preview.png" width="360" alt="Aurora preview"></a> | **Aurora**<br>One-line description.<br><sub>by [@your-handle](https://github.com/your-handle)</sub> | copy to `dotfiles/themes/aurora` |
 ```
 
 Add the row at the end of the table; maintainers may reorder it later. Do not
@@ -67,17 +67,15 @@ python3 scripts/validate-theme.py --strict
 The first command checks your theme. The second checks the whole repository,
 including duplicate display names. Both must pass.
 
-Optional checks for tooling changes:
-
-```bash
-bash -n scripts/install-theme.sh scripts/render-preview.sh
-shellcheck scripts/install-theme.sh scripts/render-preview.sh
-```
-
 ## 5. Test in Pwnbox
 
+Copy the folder into your Pwnbox checkout, stage it and rebuild:
+
 ```bash
-./scripts/install-theme.sh aurora --flake ~/pwnbox
+cp -r themes/aurora ~/pwnbox/dotfiles/themes/
+cd ~/pwnbox
+git add dotfiles/themes/aurora
+upd
 ```
 
 Select `ALT + S -> THEME -> Custom -> Aurora` and walk through the checklist
@@ -105,7 +103,7 @@ description, include:
 - The theme name and a one-line description.
 - The palette source (original, ported, generated from the wallpaper).
 - The wallpaper source and licence.
-- A screenshot of the theme in Pwnbox, if available.
+- The preview image, and a screenshot of the theme in Pwnbox if possible.
 - Whether you tested a light or dark variant, if relevant.
 
 ## Review criteria
@@ -137,7 +135,12 @@ row. Explain what changed. If the change is a visual refresh, include a new
 preview. Users who installed the old version can update with:
 
 ```bash
-./scripts/install-theme.sh <name> --force
+rm -rf ~/pwnbox/dotfiles/themes/<name>
+cp -r themes/<name> ~/pwnbox/dotfiles/themes/
+
+cd ~/pwnbox
+git add -A dotfiles/themes/<name>
+upd
 ```
 
 ## Removal and maintainership

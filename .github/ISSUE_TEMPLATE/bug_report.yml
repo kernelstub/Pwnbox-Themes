@@ -1,5 +1,5 @@
 name: Theme bug
-description: A theme installs but looks wrong, or the installer fails
+description: A theme looks wrong or does not load after copying it into Pwnbox
 labels: ["bug"]
 body:
   - type: markdown
@@ -12,7 +12,7 @@ body:
     attributes:
       label: Theme
       description: Folder name or link to the theme in this repository.
-      placeholder: e.g. midnight
+      placeholder: e.g. aurora
     validations:
       required: true
   - type: textarea
@@ -29,9 +29,9 @@ body:
       label: Steps to reproduce
       description: Minimal steps that trigger the problem.
       placeholder: |
-        1. Run ./scripts/install-theme.sh ...
-        2. Select ...
-        3. See ...
+        1. Copy the theme into ~/pwnbox/dotfiles/themes/
+        2. Run git add and upd
+        3. Select it and see ...
     validations:
       required: true
   - type: input

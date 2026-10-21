@@ -8,4 +8,4 @@ contact_links:
     about: Bugs in Pwnbox itself, not in a community theme.
   - name: Security report
     url: https://github.com/kernelstub/Pwnbox-Themes/security/advisories/new
-    about: Report an unsafe theme or a script vulnerability privately.
+    about: Report an unsafe theme or a validator vulnerability privately.

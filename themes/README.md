@@ -1,8 +1,8 @@
 # Theme packages
 
 Every directory in this folder that contains a `theme.conf` is a Pwnbox theme
-package. The folder name is the installer identity; `name` in `theme.conf` is
-the label shown in Pwnbox.
+package. The folder name is the theme's identity in Pwnbox's saved state;
+`name` in `theme.conf` is the label shown in the picker.
 
 ```text
 themes/<name>/
@@ -13,7 +13,8 @@ themes/<name>/
 ```
 
 The root [README](../README.md) has the gallery with previews and install
-commands. `_template` is scaffolding and is not installable.
+instructions. `_template` is scaffolding; copy it to a new name before using
+it.
 
 ## Adding a theme
 
@@ -23,11 +24,8 @@ commands. `_template` is scaffolding and is not installable.
    cp -r themes/_template themes/my-theme
    ```
 
-2. Edit `theme.conf`, add a 16:9 wallpaper and generate `preview.png`:
-
-   ```bash
-   ./scripts/render-preview.sh my-theme
-   ```
+2. Edit `theme.conf`, add a 16:9 wallpaper and a 16:9 screenshot called
+   `preview.png`.
 
 3. Validate:
 
@@ -35,10 +33,13 @@ commands. `_template` is scaffolding and is not installable.
    python3 scripts/validate-theme.py --theme themes/my-theme --strict
    ```
 
-4. Install and test it in Pwnbox, then open a pull request:
+4. Copy it into Pwnbox, test it, then open a pull request:
 
    ```bash
-   ./scripts/install-theme.sh my-theme --flake ~/pwnbox
+   cp -r themes/my-theme ~/pwnbox/dotfiles/themes/
+   cd ~/pwnbox
+   git add dotfiles/themes/my-theme
+   upd
    ```
 
 Read [Create a theme](../docs/usage/create.md) and the

@@ -12,7 +12,7 @@ Start with [Install](setup/install.md) if you just want a theme, or
 
 | Document | What it covers |
 | --- | --- |
-| [Install](setup/install.md) | Installer options, manual install, update, uninstall |
+| [Install](setup/install.md) | Manual copy, update, uninstall |
 
 ## Usage
 
@@ -38,10 +38,11 @@ Start with [Install](setup/install.md) if you just want a theme, or
 
 ## At a glance
 
-- **Install** a theme with `./scripts/install-theme.sh <name>`.
+- **Install** a theme by copying it into `~/pwnbox/dotfiles/themes/`, then
+  `git add` and `upd`.
 - **Create** one by copying `themes/_template`.
 - **Validate** with `python3 scripts/validate-theme.py --strict`.
-- **Preview** with `./scripts/render-preview.sh <name>`.
+- **Preview** it with a 16:9 screenshot of Pwnbox, saved as `preview.png`.
 - **Select** it with `ALT + S -> THEME -> Custom` or `pwnbox-theme custom`.
 
 ## Conventions used here

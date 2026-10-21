@@ -33,53 +33,35 @@
   <rect x="64" y="192" width="500" height="3" rx="1.5" fill="url(#line)"/>
   <text x="64" y="235" fill="#c6d0e8" font-family="DejaVu Sans, Verdana, sans-serif" font-size="19">One palette. One wallpaper.</text>
   <text x="64" y="263" fill="#c6d0e8" font-family="DejaVu Sans, Verdana, sans-serif" font-size="19">Every app on the desktop.</text>
-  <text x="64" y="302" fill="#727b90" font-family="DejaVu Sans, Verdana, sans-serif" font-size="14" letter-spacing="1">INSTALL WITH ONE SCRIPT  /  CREATE WITH ONE FILE  /  SHARE WITH A PR</text>
+  <text x="64" y="302" fill="#727b90" font-family="DejaVu Sans, Verdana, sans-serif" font-size="14" letter-spacing="1">COPY ONE FOLDER  /  EDIT ONE FILE  /  SHARE WITH A PR</text>
 
   <g transform="translate(700 66)">
     <rect width="516" height="94" rx="14" fill="#0d1018" fill-opacity="0.72" stroke="#242a36"/>
-    <text x="22" y="29" fill="#d7e0ff" font-family="DejaVu Sans, Verdana, sans-serif" font-size="15" font-weight="bold" letter-spacing="2">MIDNIGHT</text>
-    <text x="404" y="29" fill="#59637a" font-family="DejaVu Sans, Verdana, sans-serif" font-size="12" text-anchor="end">DEEP NAVY</text>
+    <text x="22" y="29" fill="#e6e6e6" font-family="DejaVu Sans, Verdana, sans-serif" font-size="15" font-weight="bold" letter-spacing="2">TEMPLATE</text>
+    <text x="404" y="29" fill="#59637a" font-family="DejaVu Sans, Verdana, sans-serif" font-size="12" text-anchor="end">START HERE</text>
     <g transform="translate(22 46)">
-      <rect width="26" height="20" rx="4" fill="#0b1020"/>
-      <rect x="30" width="26" height="20" rx="4" fill="#ff6b81"/>
-      <rect x="60" width="26" height="20" rx="4" fill="#5ee6a8"/>
-      <rect x="90" width="26" height="20" rx="4" fill="#ffd166"/>
-      <rect x="120" width="26" height="20" rx="4" fill="#6ea8ff"/>
-      <rect x="150" width="26" height="20" rx="4" fill="#c792ea"/>
-      <rect x="180" width="26" height="20" rx="4" fill="#4dd6e8"/>
-      <rect x="210" width="26" height="20" rx="4" fill="#c6d0e8"/>
-      <rect x="240" width="26" height="20" rx="4" fill="#59648c"/>
-      <rect x="270" width="26" height="20" rx="4" fill="#ff8fa0"/>
-      <rect x="300" width="26" height="20" rx="4" fill="#7cf0bc"/>
-      <rect x="330" width="26" height="20" rx="4" fill="#ffe08a"/>
-      <rect x="360" width="26" height="20" rx="4" fill="#8fbcff"/>
-      <rect x="390" width="26" height="20" rx="4" fill="#d8aef5"/>
-      <rect x="420" width="26" height="20" rx="4" fill="#74e4f2"/>
-      <rect x="450" width="26" height="20" rx="4" fill="#f2f6ff"/>
+      <rect width="26" height="20" rx="4" fill="#101014"/>
+      <rect x="30" width="26" height="20" rx="4" fill="#ff7a90"/>
+      <rect x="60" width="26" height="20" rx="4" fill="#8fe3a8"/>
+      <rect x="90" width="26" height="20" rx="4" fill="#f3d489"/>
+      <rect x="120" width="26" height="20" rx="4" fill="#7fb3ff"/>
+      <rect x="150" width="26" height="20" rx="4" fill="#d0a8f5"/>
+      <rect x="180" width="26" height="20" rx="4" fill="#7fe0e6"/>
+      <rect x="210" width="26" height="20" rx="4" fill="#c9d3e0"/>
+      <rect x="240" width="26" height="20" rx="4" fill="#5f6b7a"/>
+      <rect x="270" width="26" height="20" rx="4" fill="#ff9eae"/>
+      <rect x="300" width="26" height="20" rx="4" fill="#a8edbd"/>
+      <rect x="330" width="26" height="20" rx="4" fill="#f7e0a8"/>
+      <rect x="360" width="26" height="20" rx="4" fill="#a3c8ff"/>
+      <rect x="390" width="26" height="20" rx="4" fill="#e0c2fb"/>
+      <rect x="420" width="26" height="20" rx="4" fill="#9cebf0"/>
+      <rect x="450" width="26" height="20" rx="4" fill="#f5f8ff"/>
     </g>
   </g>
 
   <g transform="translate(700 178)">
-    <rect width="516" height="94" rx="14" fill="#0d1018" fill-opacity="0.72" stroke="#242a36"/>
-    <text x="22" y="29" fill="#f0ddd2" font-family="DejaVu Sans, Verdana, sans-serif" font-size="15" font-weight="bold" letter-spacing="2">EMBER</text>
-    <text x="404" y="29" fill="#59637a" font-family="DejaVu Sans, Verdana, sans-serif" font-size="12" text-anchor="end">WARM CHARCOAL</text>
-    <g transform="translate(22 46)">
-      <rect width="26" height="20" rx="4" fill="#140f0d"/>
-      <rect x="30" width="26" height="20" rx="4" fill="#ff6b5e"/>
-      <rect x="60" width="26" height="20" rx="4" fill="#a8c06a"/>
-      <rect x="90" width="26" height="20" rx="4" fill="#ffc66d"/>
-      <rect x="120" width="26" height="20" rx="4" fill="#7fa6c9"/>
-      <rect x="150" width="26" height="20" rx="4" fill="#d48fb8"/>
-      <rect x="180" width="26" height="20" rx="4" fill="#6fc4b3"/>
-      <rect x="210" width="26" height="20" rx="4" fill="#d8c3b8"/>
-      <rect x="240" width="26" height="20" rx="4" fill="#765e4f"/>
-      <rect x="270" width="26" height="20" rx="4" fill="#ff8a80"/>
-      <rect x="300" width="26" height="20" rx="4" fill="#c2d68b"/>
-      <rect x="330" width="26" height="20" rx="4" fill="#ffd89b"/>
-      <rect x="360" width="26" height="20" rx="4" fill="#9dc0de"/>
-      <rect x="390" width="26" height="20" rx="4" fill="#e6a9cc"/>
-      <rect x="420" width="26" height="20" rx="4" fill="#8ed8c8"/>
-      <rect x="450" width="26" height="20" rx="4" fill="#f7e8df"/>
-    </g>
+    <rect width="516" height="94" rx="14" fill="#0d1018" fill-opacity="0.5" stroke="#394050" stroke-dasharray="7 7"/>
+    <text x="22" y="39" fill="#e6e6e6" font-family="DejaVu Sans, Verdana, sans-serif" font-size="17" font-weight="bold" letter-spacing="2">YOUR THEME</text>
+    <text x="22" y="65" fill="#7f8798" font-family="DejaVu Sans, Verdana, sans-serif" font-size="13">Copy themes/_template, validate it, and open a PR.</text>
   </g>
 </svg>

@@ -1,21 +1,17 @@
 # Architecture
 
-This repository is a catalog and installer for Pwnbox custom themes. It does
-not build a package or run a service; a theme is data that becomes part of the
-Pwnbox flake.
+This repository is a catalog of Pwnbox custom themes. It does not build a
+package or run a service; a theme is data that you copy into the Pwnbox flake.
+The only tool here is the package validator.
 
 ## Repository layout
 
 ```text
 .
 ├── themes/
-│   ├── _template/          # scaffolding, not installable
-│   ├── midnight/           # example theme package
-│   └── ember/              # example theme package
+│   └── _template/          # scaffolding for a new theme
 ├── scripts/
-│   ├── install-theme.sh    # copy a package into a Pwnbox checkout
-│   ├── validate-theme.py   # package and palette validator
-│   └── render-preview.sh   # gallery preview card generator
+│   └── validate-theme.py   # package and palette validator
 ├── docs/                   # this manual
 ├── assets/                 # banner
 ├── .github/                # CI, PR template, issue forms
@@ -35,8 +31,9 @@ optionally `README.md`/`LICENSE`. The format is documented in
 ```text
 Pwnbox-Themes/themes/<name>/
         │
-        │  ./scripts/install-theme.sh <name>
-        │  (validate, copy theme.conf + wallpaper, git add, rebuild)
+        │  cp -r themes/<name> ~/pwnbox/dotfiles/themes/
+        │  git add dotfiles/themes/<name>
+        │  upd
         ▼
 ~/pwnbox/dotfiles/themes/<name>/
         │
@@ -59,19 +56,17 @@ pwnbox-theme (theme engine)          generated app themes
 The Pwnbox side of this flow is owned by the
 [Pwnbox theme engine](https://github.com/kernelstub/Pwnbox/blob/main/docs/usage/themes.md).
 
-## Why the installer copies only two files
+## What Pwnbox needs
 
-Pwnbox only reads `theme.conf` and the wallpaper named in it. `preview.png`
-and `README.md` exist for this repository's gallery and licensing. Keeping
-them out of the installed folder means:
+Pwnbox reads `theme.conf` and the wallpaper named in it. `preview.png` and
+`README.md` exist for this repository's gallery and licensing. They are
+harmless inside the installed folder as long as `wallpaper =` is explicit.
 
-- the runtime theme directory stays tiny;
-- the picker always uses the wallpaper, never a preview fallback;
-- the flake rebuild does not carry gallery assets;
-- a theme's licence and authorship stay with the source package.
+This means:
 
-If a user copies the whole folder manually, the extra files are harmless as
-long as `wallpaper =` is set.
+- the gallery can show a real screenshot or palette card;
+- a theme's licence and authorship travel with the copied folder;
+- Pwnbox never uses the preview as the wallpaper.
 
 ## Validation
 
@@ -79,9 +74,10 @@ long as `wallpaper =` is set.
 It is standard-library Python, so it runs on Pwnbox, GitHub Actions and a
 plain Linux host. CI runs it in `--strict` mode, where warnings are errors.
 
-`scripts/render-preview.sh` is a contributor convenience, not part of
-validation. It uses ImageMagick and produces a deterministic palette card
-from the wallpaper and the 16 colours. A real screenshot is also accepted.
+There is no installer and no preview generator. Contributors copy folders into
+their own Pwnbox dotfiles and take their own screenshots. That keeps the
+repository data-only and avoids a second implementation of Pwnbox's file
+layout.
 
 ## Activation and state
 
@@ -98,8 +94,4 @@ always a rebuild, never an edit under `~/.config`.
 - **New theme:** add a folder under `themes/`; no code changes.
 - **New package rule:** update `scripts/validate-theme.py` and the
   [format reference](../reference/theme-format.md) together.
-- **New installer behaviour:** update `scripts/install-theme.sh`,
-  `docs/setup/install.md` and the CI shell checks.
-- **New preview style:** update `scripts/render-preview.sh`; regenerate the
-  tracked previews.
 - **New documentation:** start at [docs/README.md](../README.md).

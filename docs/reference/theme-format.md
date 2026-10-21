@@ -17,7 +17,7 @@ themes/<name>/
 
 `<name>` is the folder name. It must be unique, lowercase and hyphenated:
 `^[a-z0-9]+(-[a-z0-9]+)*$`. The folder `_template` is the only exception; it is
-scaffolding and cannot be installed.
+scaffolding and is not a published theme.
 
 The display name comes from `name` in `theme.conf` and may contain spaces,
 capitals and punctuation. Two themes in this repository may not use the same
@@ -118,13 +118,13 @@ repository forbids both so a package stays self-contained and safe to copy.
 ## Preview rules
 
 - `preview.png` in the theme folder, used only by this repository's gallery.
-  The installer does not copy it into Pwnbox.
+  Pwnbox does not need it at runtime.
 - 16:9 aspect ratio; 1280x720 recommended.
 - At most 10 MiB.
 - No hostnames, IP addresses, usernames, chat names, keys or other private
   data. Previews are committed to a public repository.
-- A generated palette card (`./scripts/render-preview.sh <name>`) is
-  acceptable. A real screenshot of the theme in Pwnbox is better.
+- A 16:9 palette card made in your image editor is acceptable. A real
+  screenshot of the theme in Pwnbox is better.
 
 The file must be named exactly `preview.png`. Other preview formats are not
 part of the package layout.

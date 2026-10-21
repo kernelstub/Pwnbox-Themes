@@ -2,8 +2,8 @@
 
 Thanks for wanting to contribute. This repository collects community themes
 for [Pwnbox](https://github.com/kernelstub/Pwnbox). Themes that are tested,
-licensed and readable are welcome, and so are fixes to the docs, validator
-and installer.
+licensed and readable are welcome, and so are fixes to the docs and the
+validator.
 
 ## Ways to contribute
 
@@ -11,7 +11,7 @@ and installer.
   [Submit a theme](docs/development/submit.md).
 - Fix or update an existing theme (with the original author's agreement when
   possible).
-- Improve the validator, installer or preview renderer.
+- Improve the validator or the documentation.
 - Improve the documentation.
 - Report a bug or an unsafe theme privately, per the
   [security policy](SECURITY.md).
@@ -33,13 +33,9 @@ The full layout and theme lifecycle are in
 ```text
 .
 ├── themes/                 # theme packages, one directory per theme
-│   ├── _template/          # scaffolding, not installable
-│   ├── midnight/           # example theme
-│   └── ember/              # example theme
+│   └── _template/          # scaffolding for a new theme
 ├── scripts/
-│   ├── install-theme.sh    # install a theme into a Pwnbox checkout
-│   ├── validate-theme.py   # theme package validator (CI)
-│   └── render-preview.sh   # generate a gallery preview card
+│   └── validate-theme.py   # theme package validator (CI)
 ├── docs/                   # the manual
 ├── assets/                 # repository banner
 └── .github/                # issue templates, PR template, CI
@@ -60,7 +56,6 @@ The validator is the source of truth for CI.
 ## Style
 
 - Plain text, **no emojis**, in code, docs and commit messages.
-- Shell: `bash -n scripts/*.sh` and `shellcheck scripts/*.sh` must pass.
 - Python: standard library only, Python 3.9 or newer.
 - Commit messages: short lowercase-prefix summary, optional body
   (`theme: add aurora`, `docs: fix install example`, `fix: validator …`).
@@ -74,15 +69,16 @@ Before opening a PR:
 
 ```bash
 python3 scripts/validate-theme.py --strict
-bash -n scripts/install-theme.sh scripts/render-preview.sh
-shellcheck scripts/install-theme.sh scripts/render-preview.sh
 
-# install and select the theme in a real Pwnbox checkout
-./scripts/install-theme.sh <name> --flake ~/pwnbox
+# copy it into a real Pwnbox checkout, rebuild and select it
+cp -r themes/<name> ~/pwnbox/dotfiles/themes/
+cd ~/pwnbox
+git add dotfiles/themes/<name>
+upd
 ```
 
-CI runs the validator, the shell syntax checks and ShellCheck. A theme that
-only works on the author's machine will be sent back for testing.
+CI runs the validator. A theme that only works on the author's machine will be
+sent back for testing.
 
 ## Licence
 

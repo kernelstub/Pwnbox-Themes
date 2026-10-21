@@ -32,9 +32,8 @@ files in a theme package.
   ```
 
 - Python 3 for the validator. It is already installed on Pwnbox.
-- ImageMagick for `render-preview.sh` (`magick` or `convert`). It is also
-  already installed on Pwnbox.
 - An image editor or a wallpaper you have the right to redistribute.
+  ImageMagick is optional, for cropping screenshots.
 
 ## 1. Start from the template
 
@@ -43,12 +42,11 @@ cp -r themes/_template themes/aurora
 ```
 
 Use a lowercase, hyphenated folder name: `aurora`, `solar-flare`,
-`deep-space`. The folder name is the theme's identity in the installer and in
-Pwnbox's saved state. The `name` key inside `theme.conf` is the display label;
-it can contain spaces and capitals.
+`deep-space`. The folder name is the theme's identity in Pwnbox's saved state
+and in your `dotfiles/themes/` directory. The `name` key inside `theme.conf`
+is the display label; it can contain spaces and capitals.
 
-`_template` itself is scaffolding. The installer refuses folders that start
-with `_`.
+`_template` itself is scaffolding. Copy it to a new name before using it.
 
 ## 2. Choose the palette
 
@@ -185,17 +183,12 @@ thing people see. Pick something that represents the palette.
 ## 5. Add a preview
 
 `preview.png` is the gallery image. It is required for submissions and is not
-copied into Pwnbox by the installer.
+needed by Pwnbox at runtime. The template ships a placeholder; replace it.
 
-Generate a consistent palette card from the wallpaper and the 16 colours:
+The best preview is a real screenshot of Pwnbox with the theme active. After
+installing it for testing (step 7):
 
-```bash
-./scripts/render-preview.sh aurora
-```
-
-Or use a real screenshot of Pwnbox with the theme active:
-
-1. Install the theme and select it.
+1. Select the theme in Pwnbox.
 2. Take a screenshot with `PRINT` (clipboard), `SUPER + SHIFT + S` (region) or
    `SUPER + SHIFT + R` (save).
 3. Crop and resize to 16:9, for example with ImageMagick:
@@ -208,8 +201,8 @@ Or use a real screenshot of Pwnbox with the theme active:
 4. Remove or blur hostnames, IP addresses, usernames, chat names and anything
    else private. Screenshots are published on GitHub.
 
-Recommended: 1280x720, PNG, 16:9. A palette card is perfectly acceptable and
-is what the maintainers use for the example themes.
+If you cannot run Pwnbox yet, a 16:9 palette card made in your image editor is
+acceptable. Recommended: 1280x720, PNG, 16:9.
 
 ## 6. Validate
 
@@ -227,14 +220,19 @@ To validate the whole repository:
 python3 scripts/validate-theme.py --strict
 ```
 
-## 7. Install and test in Pwnbox
+## 7. Copy it into Pwnbox and test
+
+Copy the theme folder into your Pwnbox dotfiles, stage it and rebuild:
 
 ```bash
-./scripts/install-theme.sh aurora --flake ~/pwnbox
+cp -r themes/aurora ~/pwnbox/dotfiles/themes/
+cd ~/pwnbox
+git add dotfiles/themes/aurora
+upd
 ```
 
-The installer validates the theme, copies `theme.conf` and the wallpaper,
-stages the folder, and rebuilds. Then select it:
+Pwnbox only needs `theme.conf` and the wallpaper named in it. The preview and
+README are harmless extras. Then select it:
 
 ```text
 ALT + S -> THEME -> Custom -> Aurora
@@ -272,8 +270,8 @@ git push origin theme/aurora
 ```
 
 Open a pull request against `main`. Add a row to the gallery in the root
-`README.md` with the preview and install command. The full review process is
-in [Submit a theme](../development/submit.md).
+`README.md` with the preview and a short description. The full review process
+is in [Submit a theme](../development/submit.md).
 
 ## Design guidelines
 
