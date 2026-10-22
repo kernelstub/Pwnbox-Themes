@@ -15,33 +15,45 @@
 
 ## Themes
 
-No community themes have been merged yet. The [`themes/_template/`](themes/_template/)
-package is the starting point.
-
 Pwnbox ships its own themes; this repository is for community additions. Every
 contributed theme is a self-contained folder under `themes/` and gets a row in
-this gallery:
+this gallery. Pick one below and copy it into your Pwnbox dotfiles.
 
 | Preview | Theme | Install |
 | --- | --- | --- |
+| <a href="themes/amoled"><img src="themes/amoled/preview.png" width="360" alt="Amoled theme preview"></a> | **Amoled**<br>Pure-black grayscale palette for OLED displays. | copy to `dotfiles/themes/amoled` |
+| <a href="themes/beach"><img src="themes/beach/preview.png" width="360" alt="Beach theme preview"></a> | **Beach**<br>Muted sand and sea-green tones. | copy to `dotfiles/themes/beach` |
+| <a href="themes/catppuccin"><img src="themes/catppuccin/preview.png" width="360" alt="Catppuccin Mocha theme preview"></a> | **Catppuccin Mocha**<br>The popular Catppuccin Mocha palette. | copy to `dotfiles/themes/catppuccin` |
+| <a href="themes/compose"><img src="themes/compose/preview.png" width="360" alt="Compose theme preview"></a> | **Compose**<br>Soft lavender and mauve tones. | copy to `dotfiles/themes/compose` |
+| <a href="themes/decay"><img src="themes/decay/preview.png" width="360" alt="Decay theme preview"></a> | **Decay**<br>Deep blue-black with vivid pastel accents. | copy to `dotfiles/themes/decay` |
+| <a href="themes/espresso"><img src="themes/espresso/preview.png" width="360" alt="Espresso theme preview"></a> | **Espresso**<br>Dark coffee tones with warm pastel accents. | copy to `dotfiles/themes/espresso` |
+| <a href="themes/gruvbox"><img src="themes/gruvbox/preview.png" width="360" alt="Gruvbox theme preview"></a> | **Gruvbox**<br>The classic Gruvbox Dark palette. | copy to `dotfiles/themes/gruvbox` |
+| <a href="themes/monochrome"><img src="themes/monochrome/preview.png" width="360" alt="Monochrome theme preview"></a> | **Monochrome**<br>High-contrast black-and-white palette. | copy to `dotfiles/themes/monochrome` |
+| <a href="themes/natura"><img src="themes/natura/preview.png" width="360" alt="Natura theme preview"></a> | **Natura**<br>Forest greens on near-black. | copy to `dotfiles/themes/natura` |
+| <a href="themes/nord"><img src="themes/nord/preview.png" width="360" alt="Nord theme preview"></a> | **Nord**<br>The arctic, blue-tinted Nord palette. | copy to `dotfiles/themes/nord` |
+| <a href="themes/pwnbox"><img src="themes/pwnbox/preview.png" width="360" alt="Pwnbox theme preview"></a> | **Pwnbox**<br>Pwnbox's default monochrome palette. | copy to `dotfiles/themes/pwnbox` |
+| <a href="themes/sakura"><img src="themes/sakura/preview.png" width="360" alt="Sakura theme preview"></a> | **Sakura**<br>Dusty pink and cream blossom tones. | copy to `dotfiles/themes/sakura` |
 | <a href="docs/usage/create.md">+ Add your theme</a> | **Your theme here**<br>Build it, validate it, open a PR. | — |
+
+The [`themes/_template/`](themes/_template/) package is the starting point for
+your own theme.
 
 ---
 
 ## Quick start
 
-**Use a theme** once one is merged:
+**Use a theme** from the gallery:
 
 ```bash
-cp -r themes/aurora ~/pwnbox/dotfiles/themes/
+cp -r themes/amoled ~/pwnbox/dotfiles/themes/
 
 cd ~/pwnbox
-git add dotfiles/themes/aurora
+git add dotfiles/themes/amoled
 upd
 ```
 
 Then select it with `ALT + S -> THEME -> Custom`, or run `pwnbox-theme custom`.
-The example name `aurora` stands for the theme folder you want. See
+Replace `amoled` with whichever theme folder you copied. See
 [docs/setup/install.md](docs/setup/install.md) for updating and uninstalling.
 
 **Create a theme:**
